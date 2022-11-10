@@ -23,68 +23,68 @@ dependencies:
     repository: "@stable"
   - name: postgresql
     version: "10.2.3"
-    repository: "@bitnami"
+    repository: "@azure-marketplace"
     alias: postgresqlthings
     condition: postgresqlthings.enabled
   - name: postgresql
     version: "10.2.3"
-    repository: "@bitnami"
+    repository: "@azure-marketplace"
     alias: postgresqlusers
     condition: postgresqlusers.enabled
   - name: postgresql
     version: "10.2.3"
-    repository: "@bitnami"
+    repository: "@azure-marketplace"
     alias: postgresqlauth
     condition: postgresqlauth.enabled
   - name: postgresql
     version: "10.2.3"
-    repository: "@bitnami"
+    repository: "@azure-marketplace"
     alias: postgresqlbootstrap
     condition: postgresqlbootstrap.enabled
   - name: postgresql
     version: "10.2.3"
-    repository: "@bitnami"
+    repository: "@azure-marketplace"
     alias: postgresqlcerts
     condition: postgresqlcerts.enabled
   - name: postgresql
     version: "10.2.3"
-    repository: "@bitnami"
+    repository: "@azure-marketplace"
     alias: postgresqlketo
     condition: postgresqlketo.enabled
   - name: redis
     version: "12.6.2"
-    repository: "@bitnami"
+    repository: "@azure-marketplace"
     alias: redis-streams
   - name: redis
     version: "12.6.2"
-    repository: "@bitnami"
+    repository: "@azure-marketplace"
     alias: redis-auth
   - name: redis
     version: "12.6.2"
-    repository: "@bitnami"
+    repository: "@azure-marketplace"
     alias: redis-mqtt
   - name: redis
     version: "12.6.2"
-    repository: "@bitnami"
+    repository: "@azure-marketplace"
     alias: redis-opcua
     condition: adapter_opcua.enabled
   - name: redis
     version: "12.6.2"
-    repository: "@bitnami"
+    repository: "@azure-marketplace"
     alias: redis-lora
     condition: adapter_lora.enabled
   - name: influxdb
     version: "1.1.9"
-    repository: "@bitnami"
+    repository: "@azure-marketplace"
     condition: influxdb.enabled
   - name: mongodb
     version: "10.4.1"
-    repository: "@bitnami"
+    repository: "@azure-marketplace"
     alias: twins-db
     condition: twins.enabled
   - name: postgresql
     version: "10.2.3"
-    repository: "@bitnami"
+    repository: "@azure-marketplace"
     alias: postgresqlnotifiersmtp
     condition: postgresqlnotifiersmtp.enabled
   - name: loki-stack
