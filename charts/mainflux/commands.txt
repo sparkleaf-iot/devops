@@ -1,0 +1,25 @@
+
+curl -s -S -i -X POST -H "Content-Type: application/json" http://20.223.9.139/tokens -d '{"email":"admin@admin.com", "password":"admintest"}'
+
+curl -s -S -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjgzOTcwNzMsImlhdCI6MTY2ODM2MTA3MywiaXNzIjoibWFpbmZsdXguYXV0aCIsInN1YiI6ImFkbWluQGFkbWluLmNvbSIsImlzc3Vlcl9pZCI6ImM2NTYyNzMzLWRkZDktNDY1MC05YzRhLWIyZGIxMGRjNmU0MSIsInR5cGUiOjB9.a9Z43hEryPnb0Ty0WszEmASJPz48dcQH8_kmeRNi2C8" http://20.223.9.139/things/bulk -d '[{"name": "test_device"}]'
+
+
+curl -s -S -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjgyMTE4ODEsImlhdCI6MTY2ODE3NTg4MSwiaXNzIjoibWFpbmZsdXguYXV0aCIsInN1YiI6ImFkbWluQGFkbWluLmNvbSIsImlzc3Vlcl9pZCI6ImIwNDkxZTYwLWRmZDctNDQxZC04N2FmLTVjNzVkMDljOTU3NSIsInR5cGUiOjB9.FPuRbmPBCLbGn533hQsAz_Rb2mqsPRZZKDGgErxegno" http://20.107.166.97/things/bulk -d '[{"name": "test_devicee"}]'
+
+curl -s -S -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjgyMTE4ODEsImlhdCI6MTY2ODE3NTg4MSwiaXNzIjoibWFpbmZsdXguYXV0aCIsInN1YiI6ImFkbWluQGFkbWluLmNvbSIsImlzc3Vlcl9pZCI6ImIwNDkxZTYwLWRmZDctNDQxZC04N2FmLTVjNzVkMDljOTU3NSIsInR5cGUiOjB9.FPuRbmPBCLbGn533hQsAz_Rb2mqsPRZZKDGgErxegno" http://20.107.166.97/connect -d '{"channel_ids": ["65da8098-1aeb-428a-a96d-83465ca52c53"], "thing_ids": ["03493131-76ac-47f9-ba03-a647057a1bf9"]}'
+
+
+
+mosquitto_pub -u 03493131-76ac-47f9-ba03-a647057a1bf9 -P f894a6ab-5c64-4e9b-9e21-3b5999eca0c8 -t channels/65da8098-1aeb-428a-a96d-83465ca52c53/messages -h http://20.107.166.97 -m '[{"bn":"some-base-name:","bt":1.276020076001e+09, "bu":"A","bver":5, "n":"voltage","u":"V","v":120.1}, {"n":"current","t":-5,"v":1.2}, {"n":"current","t":-4,"v":1.3}]'
+
+curl -s -S -i --cacert docker/ssl/certs/ca.crt -X POST -H "Authorization: <thing_token>" https://localhost/http/channels/<channel_id>/messages -d '[{"bn":"some-base-name:","bt":1.276020076001e+09, "bu":"A","bver":5, "n":"voltage","u":"V","v":120.1}, {"n":"current","t":-5,"v":1.2}, {"n":"current","t":-4,"v":1.3}]'
+
+curl -s -S -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjgzOTcwNzMsImlhdCI6MTY2ODM2MTA3MywiaXNzIjoibWFpbmZsdXguYXV0aCIsInN1YiI6ImFkbWluQGFkbWluLmNvbSIsImlzc3Vlcl9pZCI6ImM2NTYyNzMzLWRkZDktNDY1MC05YzRhLWIyZGIxMGRjNmU0MSIsInR5cGUiOjB9.a9Z43hEryPnb0Ty0WszEmASJPz48dcQH8_kmeRNi2C8" http://20.223.9.139/channels -d '{"name": "dev"}'
+
+"id":"248a555a-d0ba-441c-a2e9-470dae02a71b","name":"test_device","key":"b8b50b2d-6295-44c0-aecf-5e67d1a7e100" 
+
+curl -s -S -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjgzOTcwNzMsImlhdCI6MTY2ODM2MTA3MywiaXNzIjoibWFpbmZsdXguYXV0aCIsInN1YiI6ImFkbWluQGFkbWluLmNvbSIsImlzc3Vlcl9pZCI6ImM2NTYyNzMzLWRkZDktNDY1MC05YzRhLWIyZGIxMGRjNmU0MSIsInR5cGUiOjB9.a9Z43hEryPnb0Ty0WszEmASJPz48dcQH8_kmeRNi2C8" http://20.223.9.139/connect -d '{"channel_ids": ["8f6a493a-b3ba-487f-ab20-4791225fac74"], "thing_ids": ["248a555a-d0ba-441c-a2e9-470dae02a71b"]}'
+
+curl -s -S -i -X POST -H "Authorization: Thing b8b50b2d-6295-44c0-aecf-5e67d1a7e100" http://20.223.9.139/http/channels/8f6a493a-b3ba-487f-ab20-4791225fac74/messages -d '[{"bn":"some-base-name:","bt":1.276020076001e+09,"bu":"A","bver":5,"n":"voltage","u":"V","v":120.1}, {"n":"current","t":-5,"v":1.2}, {"n":"current","t":-4,"v":1.3}]'
+
+curl -s -S -i -X POST -H "Authorization: Thing b8b50b2d-6295-44c0-aecf-5e67d1a7e100" https://localhost/http/channels/<channel_id>/messages -d '[{"bn":"some-base-name:","bt":1.276020076001e+09, "bu":"A","bver":5, "n":"voltage","u":"V","v":120.1}, {"n":"current","t":-5,"v":1.2}, {"n":"current","t":-4,"v":1.3}]'

@@ -59,9 +59,5 @@ spec:
               protocol: TCP
             - containerPort: {{ .Values.auth.grpcPort }}
               protocol: TCP
-      {{- with .Values.defaults.image.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 12 }}
-      {{- end }}
       dnsPolicy: ClusterFirst
       restartPolicy: Always
