@@ -3,10 +3,22 @@ kind: Deployment
 metadata:
   name: sparkleaf-handler
   namespace: mf
+  labels:
+    app: handler
 spec:
-  containers:
-  - name: handler
-  image: emilsallem/sparkleaf-handler:main-latest
-  imagePullPolicy: Never
-  nodeSelector:
-    pool: ondemand
+  replicas: 1
+  selector:
+    matchLabels:
+      app: handler
+  template:
+    metadata:
+      labels:
+        app: handler
+    spec:
+      containers:
+      - name: handler
+        image: emilsallem/sparkleaf-handler:main-latest
+        ports:
+        - containerPort: 8080
+      nodeSelector:
+        pool: ondemand
