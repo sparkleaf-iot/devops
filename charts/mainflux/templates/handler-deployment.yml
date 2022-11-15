@@ -21,4 +21,4 @@ spec:
         ports:
         - containerPort: 8080
       nodeSelector:
-        pool: ondemand
+        agentpool: ondemand
