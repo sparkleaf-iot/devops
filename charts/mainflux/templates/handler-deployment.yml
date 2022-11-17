@@ -19,6 +19,6 @@ spec:
       - name: handler
         image: emilsallem/sparkleaf-handler:main-latest
         ports:
-        - containerPort: 8080
+        - containerPort: 80
       nodeSelector:
         agentpool: ondemand
